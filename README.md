@@ -60,6 +60,34 @@
 #### En el siguiente esquema vemos un resumen en forma de escalera de cómo hacer las conversiones entre las diferentes unidades de medida de la información, para pasar de una unidad más grande a otra más pequeña,es decir bajar escalones, multiplicaremos y para pasar de una más pequeña a otra mayor, es decir subir escalones, dividiremos:
 ![](https://iesalandalus.es/tyc/t1/escaleraconversion.jpg)
 
+
+## TIPOS DE DATO SQL SERVER
+
+### TIPOS DE DATOS STANDARD (Más utilizados)
+#### Numéricos
+##### Enteros BIT, TINYINT, SMALLINT, INT, BIGINT
+##### Decimales MONEY, DECIMAL
+#### Texto y Binarios
+##### CHAR, VARCHAR, NCHAR, NVARCHAR
+##### BINARY, VARBINARY
+#### Fecha y Hora
+##### DATE, TIME, DATETIME, SMALLDATETIME
+
+### Descripción de Tipos de Dato y sus tamaños posibles
+#### BIT 1 byte
+    0 ó 1
+    True o False
+#### TINYINT 1 byte
+    0 a 255
+#### SMALLINT 2 bytes
+    -2^15 (-32,768) HASTA 2^15-1 (32,767)
+#### INT 4 bytes
+    -2^31 (-2,147,483,648) HASTA 2^31-1 (2,147,483,647)
+#### BIGINT 8 bytes
+    -2^63 (-9,223,372,036,854,775,808) HASTA 2^63-1 (9,223,372,036,854,775,807)
+#### MONEY 8 bytes
+    -922,337,203,685,477.5808 HASTA 922,337,203,685,477.5807
+
 # 
 ## Integridad de la Base de Datos
 
