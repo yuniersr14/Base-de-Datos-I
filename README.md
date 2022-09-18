@@ -90,8 +90,55 @@
 
 # 
 ## Integridad de la Base de Datos
+### PRIMARY KEY
+#### Definiciones y reglas generales
+##### 1. La clave primaria o primary key, identifica de manera unívoca (única) a cada registro de una tabla.
+##### 2. El valor que contiene la columna definida como primary key, debe ser único.
+##### 3. El valor debe ser NOT NULL (no permitirá valores nulos)
+##### 4. Una tabla puede tener más de un campo PK, a la que llamaremos CLAVE COMPUESTA
+##### 5. Sea SIMPLE o COMPUESTA, cada tabla solo podrá tener una clave primaria (PRIMARY KEY)
+
+|IdPaciente|Nombre|Apellido|Email|idPais|
+|----------|------|--------|-----|------|
+|i|Jorge|Rodriguez|a@a.com|MEX|
+|2|Marcelo|Lope Llano|a@a.com|MEX|
+|3|Kari|Lopreta|a@a.com|COL|
+|4|Juan Manuel|Loerfano|a@a.com|ARG|
+|5|Juan Manuel|Perez Lozano|a@a.com|ESP|
+|6|Karim|Berragas|a@a.com|PER|
+|7|Saul|Lpez Gomez|a@a.com|CHI|
+
+
+
+### Definiciones y reglas generales
+##### 1. La clave foránea o foreign key, debe ser del mismo tipo de dato que su campo relacionado.
+##### 2. El valor del campo definido como FK puede ser NULL
+##### 3. Una tabla puede tener más de un campo FK
+
+![](./images/foreingkey.png)
+
 
 ## Restricciones y propiedades de campos
+
+
+### Usar Transact-SQL
+##### Creación de una clave principal en una tabla existente En el ejemplo siguiente se crea una clave principal en la columna TransactionID de la base de datos de AdventureWorks.
+
+Codigo:
+~~~sql
+ALTER TABLE Production.TransactionHistoryArchive
+   ADD CONSTRAINT PK_TransactionHistoryArchive_TransactionID PRIMARY KEY CLUSTERED (TransactionID);
+~~~
+
+### Creación de una clave principal en una tabla nueva
+##### En el ejemplo siguiente se crea una tabla y se define una clave principal en la columna TransactionID de la base de datos de AdventureWorks.
+~~~sql
+CREATE TABLE Production.TransactionHistoryArchive1
+   (
+      TransactionID int IDENTITY (1,1) NOT NULL
+      , CONSTRAINT PK_TransactionHistoryArchive1_TransactionID PRIMARY KEY CLUSTERED (TransactionID)
+   );
+~~~
 
 ## Comandos SQL para manipulación de registros
 
