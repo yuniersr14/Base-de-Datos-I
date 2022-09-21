@@ -10,7 +10,8 @@
 #### 1.4 - [UNIDADES DE MEDIDA EN INFORMATICA](#UNIDADESDEMEDIDAENINFORMATICA)
 #### 1.5 - [TIPOS DE DATO SQL SERVER](#TIPOSDEDATOSQLSERVER)
 #### 1.6 - [Integridad de la Base de Datos](#IntegridaddelaBasedeDatos)
-#### 1.7 - [**Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
+#### 1.7 - [Creacion de nuestra primera Base de datos](#CreaciondenuestraprimeraBasededatos)
+#### 1.8 - [**Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
 
 
 
@@ -158,7 +159,7 @@ CREATE TABLE Production.TransactionHistoryArchive1
 #### Haz el ejercicio paso a paso.
 
 #### **Recuerda que el secreto del éxito está en la perseverancia.**
-[Creacion de nuestra primera Base de datos](https://www.youtube.com/watch?v=SZprT1ebLcU)
+# [Creacion de nuestra primera Base de datos](https://www.youtube.com/watch?v=SZprT1ebLcU) <a name="CreaciondenuestraprimeraBasededatos"></a>
 
 #
 
