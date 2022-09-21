@@ -158,7 +158,7 @@ CREATE TABLE Production.TransactionHistoryArchive1
 
 #### Haz el ejercicio paso a paso.
 #### **Recuerda que el secreto del éxito está en la perseverancia.**
-# [Creacion de nuestra primera Base de datos](https://www.youtube.com/watch?v=SZprT1ebLcU) <a name="CreaciondenuestraprimeraBasededatos"></a>
+## [Link Video Creacion de nuestra primera Base de datos](https://www.youtube.com/watch?v=SZprT1ebLcU) <a name="CreaciondenuestraprimeraBasededatos"></a>
 ![](https://i.ytimg.com/vi/YOaC_TyOrdk/maxresdefault.jpg)
 
 #
