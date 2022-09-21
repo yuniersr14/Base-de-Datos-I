@@ -140,6 +140,100 @@ CREATE TABLE Production.TransactionHistoryArchive1
    );
 ~~~
 
+
+## Creando Nuestra Primera Base de datos.
+#### Se adjunta un video tutorial que le muestra cómo crear una base de datos en Sql Server.
+
+#### Haz el ejercicio paso a paso.
+
+#### **Recuerda que el secreto del éxito está en la perseverancia.**
+[Creacion de nuestra primera Base de datos](https://www.youtube.com/watch?v=SZprT1ebLcU)
+
+#
+
+## Crear las Tablas de nuestra Base de datos.
+
+### Tabla de pacientes.
+
+~~~sql
+CREATE TABLE [dbo].[Paciente](
+	[idPaciente] [int] Primary key Identity,
+	[nombre] [varchar](50) NULL,
+	[apellido] [varchar](50) NULL,
+	[fNacimiento] [date] NULL,
+	[domicilio] [varchar](50) NULL,
+	[idPais] [char](3) NULL,
+	[telefono] [varchar](20) NULL,
+	[email] [varchar](30) NULL,
+	[observacion] [varchar](1000) NULL,
+	[fechaAlta] [datetime] NULL
+)
+GO
+~~~
+
+
+### Dado este ejemplo
+#### Se procederá a la creación de las siguientes tablas de nuestra base de datos.
+
+
+## [Historia]
+
+        [idHistoria] [int] 
+        [fechaHistoria] [datetime]
+        [observacion] [varchar](2000)
+        [fechaAlta] [datetime] 
+
+## [HistoriaPaciente]
+        [idHistoria] [int]
+        [idPaciente] [int]
+        [idMedico] [int] 
+
+
+## [TurnoPaciente]
+        [idTurno] [int] 
+        [idPaciente] [int] 
+        [idMedico] [smallint]
+    CONSTRAINT [PK_PacienteTurno] PRIMARY KEY CLUSTERED
+
+## [Turno]
+        [idTurno] [int]
+        [fechaTurno] [datetime]
+        [fechaAlta] [datetime]
+        [estado] [nchar](10)
+    CONSTRAINT [PK_Turno] PRIMARY KEY CLUSTERED 
+
+## [Pais]
+        [idPais] [char](3)
+        [pais] [varchar](30)
+    CONSTRAINT [PK_Pais] PRIMARY KEY CLUSTERED 
+
+## [Especialidad]
+        [idEspecialidad] [int] IDENTITY(1,1)
+        [especialidad] [varchar](30) 
+    CONSTRAINT [PK_Especialidad] PRIMARY KEY CLUSTERED 
+
+## [Medico]
+        [idMedico] [dbo].[medico] IDENTITY(1,1)
+        [nombre] [varchar](50)
+        [apellido] [varchar](50)
+    CONSTRAINT [PK_Medico] PRIMARY KEY CLUSTERED 
+
+## [MedicoEspecialidad]
+        [idMedico] [int] 
+        [idEspecialidad] [int]
+        [descripcion] [varchar](50)
+    CONSTRAINT [PK_MedicoEspecialidad] PRIMARY KEY CLUSTERED 
+
+
+#### Cree las tablas que se muestran en el ejercicio.
+#### Preste mucha atención al tipo de datos y su tamaño.
+
+#### Debe enviar estos códigos en formato TXT o SQL. Te lo explicaremos en el aula.
+#### **Recuerda que el secreto del éxito está en la perseverancia.**
+#
+
+
+
 ## Comandos SQL para manipulación de registros
 
 
