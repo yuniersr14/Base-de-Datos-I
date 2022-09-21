@@ -3,15 +3,26 @@
 
 # Base-de-Datos-I
 
+## 1 - [Unidad I](#UnidadI)
+#### 1.1 - [¿Que es SQL?](#Queessql)
+#### 1.2 - [¿Qué es T-SQL?](#QuéesT-SQL)
+#### 1.3 - [Microsoft SQL Server](#MicrosoftSQLServer)
+#### 1.4 - [UNIDADES DE MEDIDA EN INFORMATICA](#UNIDADESDEMEDIDAENINFORMATICA)
+#### 1.5 - [TIPOS DE DATO SQL SERVER](#TIPOSDEDATOSQLSERVER)
+#### 1.6 - [Integridad de la Base de Datos](#IntegridaddelaBasedeDatos)
+#### 1.7 - [**Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
 
-# Unidad I
+
+
+
+# Unidad I <a name="UnidadI"></a>
 ## Fudamentos de Estructuras de Datos
 #
-### **¿Que es SQL?**
+### **¿Que es SQL?** <a name="Queessql"></a>
 #### SQL Structured Query Language en español Lenguaje de consulta Estructurado, es un lenguaje específico utilizado en programación, diseñado para administrar, y recuperar información de sistemas de gestión de bases de datos relacionales.
 #### Una de sus principales características es el manejo de álgebra y el cálculo relacional para realizar consultas y obtener información de forma sencilla, y además para realizar cambios en ella.
 
-### **¿Qué es T-SQL?**
+### **¿Qué es T-SQL?**<a name="QuéesT-SQL"></a>
 #### T-SQL (Transact-SQL) es la manera en que se comunican las instrucciones de manipulación de datos que gestiona el usuario con el Servidor; las cuales permiten realizar operaciones claves en SQL Server, como creación y modificación de esquemas de base de datos, inserción y modificación de datos y además la administración del propio Servidor de Base de Datos.
 
 #### Esto se realiza mediante el envío de sentencias e instrucciones en T-SQL que son procesadas por el servidor y los resultados regresan a la aplicación cliente.
@@ -27,13 +38,13 @@
     Crear interfaces de usuario.
     Crear aplicaciones ejecutables.
 
-## **Microsoft SQL Server**
+## **Microsoft SQL Server**<a name="MicrosoftSQLServer"></a>
 ####  Es un sistema de manejo de bases de datos del modelo relacional, desarrollado por la empresa Microsoft.
 
 #### El lenguaje utilizado (que puede ser ejecutado por línea de comandos o mediante la interfaz gráfica de Management Studio) es Transact-SQL T-SQ
 
 
-## **UNIDADES DE MEDIDA EN INFORMATICA**
+## **UNIDADES DE MEDIDA EN INFORMATICA** <a name="UNIDADESDEMEDIDAENINFORMATICA"></a>
 
 #### La información, al igual que ocurre con el peso o con el volumen, se puede medir. Dependiendo de si tenemos más o menos cantidad de información usaremos unas u otras de las siguientes unidades de medida:
 
@@ -61,7 +72,7 @@
 ![](https://iesalandalus.es/tyc/t1/escaleraconversion.jpg)
 
 
-## TIPOS DE DATO SQL SERVER
+## TIPOS DE DATO SQL SERVER <a name="TIPOSDEDATOSQLSERVER"></a>
 
 ### TIPOS DE DATOS STANDARD (Más utilizados)
 #### Numéricos
@@ -89,7 +100,7 @@
     -922,337,203,685,477.5808 HASTA 922,337,203,685,477.5807
 
 # 
-## Integridad de la Base de Datos
+## Integridad de la Base de Datos <a name="IntegridaddelaBasedeDatos"></a>
 ### PRIMARY KEY
 #### Definiciones y reglas generales
 ##### 1. La clave primaria o primary key, identifica de manera unívoca (única) a cada registro de una tabla.
@@ -151,7 +162,7 @@ CREATE TABLE Production.TransactionHistoryArchive1
 
 #
 
-## Crear las Tablas de nuestra Base de datos.
+## **Ejercicio** Crear las Tablas de nuestra Base de datos. <a name="EjercicioCrearlasTablasdenuestraBasededatos"></a>
 
 ### Tabla de pacientes.
 
