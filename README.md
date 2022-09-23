@@ -195,10 +195,41 @@ GO
         [observacion] [varchar](2000)
         [fechaAlta] [datetime] 
 
+~~~sql
+
+CREATE TABLE [dbo].[Historia](
+	[idHistoria] [int] NOT NULL,
+	[fechaHistoria] [datetime] NOT NULL,
+	[observacion] [varchar](2000) NULL,
+	[fechaAlta] [datetime] NULL,
+ CONSTRAINT [PK_PacienteHistoria_1] PRIMARY KEY CLUSTERED 
+(
+	[idHistoria] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+~~~
+# 
 ## [HistoriaPaciente]
         [idHistoria] [int]
         [idPaciente] [int]
         [idMedico] [int] 
+
+~~~sql
+CREATE TABLE [dbo].[HistoriaPaciente](
+	[idHistoria] [int] NOT NULL,
+	[idPaciente] [int] NOT NULL,
+	[idMedico] [int] NOT NULL,
+ CONSTRAINT [PK_HistoriaPaciente] PRIMARY KEY CLUSTERED 
+(
+	[idHistoria] ASC,
+	[idPaciente] ASC,
+	[idMedico] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+~~~
+#
 
 
 ## [TurnoPaciente]
@@ -207,6 +238,23 @@ GO
         [idMedico] [smallint]
     CONSTRAINT [PK_PacienteTurno] PRIMARY KEY CLUSTERED
 
+~~~sql
+CREATE TABLE [dbo].[TurnoPaciente](
+	[idTurno] [int] NOT NULL,
+	[idPaciente] [int] NOT NULL,
+	[idMedico] [smallint] NOT NULL,
+ CONSTRAINT [PK_PacienteTurno] PRIMARY KEY CLUSTERED 
+(
+	[idTurno] ASC,
+	[idPaciente] ASC,
+	[idMedico] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+~~~
+
+# 
+
 ## [Turno]
         [idTurno] [int]
         [fechaTurno] [datetime]
@@ -214,15 +262,60 @@ GO
         [estado] [nchar](10)
     CONSTRAINT [PK_Turno] PRIMARY KEY CLUSTERED 
 
+~~~sql
+CREATE TABLE [dbo].[Turno](
+	[idTurno] [int] NOT NULL,
+	[fechaTurno] [datetime] NULL,
+	[fechaAlta] [datetime] NULL,
+	[estado] [nchar](10) NULL,
+ CONSTRAINT [PK_Turno] PRIMARY KEY CLUSTERED 
+(
+	[idTurno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+~~~
+# 
+
 ## [Pais]
         [idPais] [char](3)
         [pais] [varchar](30)
     CONSTRAINT [PK_Pais] PRIMARY KEY CLUSTERED 
 
+~~~sql
+CREATE TABLE [dbo].[Pais](
+	[idPais] [char](3) NOT NULL,
+	[pais] [varchar](30) NULL,
+ CONSTRAINT [PK_Pais] PRIMARY KEY CLUSTERED 
+(
+	[idPais] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+~~~
+# 
+
+
+
+
 ## [Especialidad]
         [idEspecialidad] [int] IDENTITY(1,1)
         [especialidad] [varchar](30) 
     CONSTRAINT [PK_Especialidad] PRIMARY KEY CLUSTERED 
+
+~~~sql
+CREATE TABLE [dbo].[Especialidad](
+	[idEspecialidad] [int] IDENTITY(1,1) NOT NULL,
+	[especialidad] [varchar](30) NULL,
+ CONSTRAINT [PK_Especialidad] PRIMARY KEY CLUSTERED 
+(
+	[idEspecialidad] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+~~~
+# 
+
 
 ## [Medico]
         [idMedico] [dbo].[medico] IDENTITY(1,1)
@@ -230,11 +323,38 @@ GO
         [apellido] [varchar](50)
     CONSTRAINT [PK_Medico] PRIMARY KEY CLUSTERED 
 
+~~~sql
+CREATE TABLE [dbo].[Medico](
+	[idMedico] [dbo].[medico] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](50) NULL,
+	[apellido] [varchar](50) NULL,
+ CONSTRAINT [PK_Medico] PRIMARY KEY CLUSTERED 
+(
+	[idMedico] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+~~~
+# 
 ## [MedicoEspecialidad]
         [idMedico] [int] 
         [idEspecialidad] [int]
         [descripcion] [varchar](50)
     CONSTRAINT [PK_MedicoEspecialidad] PRIMARY KEY CLUSTERED 
+~~~sql
+CREATE TABLE [dbo].[MedicoEspecialidad](
+	[idMedico] [int] NOT NULL,
+	[idEspecialidad] [int] NOT NULL,
+	[descripcion] [varchar](50) NULL,
+ CONSTRAINT [PK_MedicoEspecialidad] PRIMARY KEY CLUSTERED 
+(
+	[idMedico] ASC,
+	[idEspecialidad] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+~~~
 
 
 #### Cree las tablas que se muestran en el ejercicio.
@@ -247,6 +367,18 @@ GO
 
 
 ## Comandos SQL para manipulación de registros
+## ***Comando Select***
+#### La instrucción SELECT en SQL se usa para recuperar datos de una base de datos relacional. Sintaxis SQL: SELECT * FROM "table_name"; "table_name" es el nombre de la tabla donde se almacenan los datos, y "column_name" es el nombre de la columna que contiene los datos que se recuperarán.
+# 
+## ***Comando INSERT ***
+#### es una sentencia SQL que añade datos a una tabla. La sentencia INSERT tiene el formato siguiente: INSERT INTO nombtabla VALUES ( valor1, valor2 , ...) En esta sintaxis, nombtabla es el nombre de la tabla o vista en la que se desea insertar datos y valor1, valor2 (etc.), son los valores que va a insertar.
+#
+## ***Comando UPDATE***
+#### La declaración UPDATE puede utilizarse para actualizar una sola columna, un conjunto más amplio de registros (mediante el uso de condiciones), y/o toda la tabla en una base de datos. La(s) condición(es) puede(n) ser un booleano, una verificación de cadena de texto o una secuencia matemática que se resuelve en un booleano (mayor que, menos que, etc.).
+# 
+## ***comando DELETE***
+#### El comando DELETE permitirá eliminar una o varias filas de una tabla. La sintaxis del comando DELETE es simple si no limitamos las filas. Si no se indica la cláusula WHERE, se borrarán todas las filas de la tabla.
+#
 
 
 
