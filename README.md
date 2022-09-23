@@ -13,6 +13,7 @@
 #### 1.7 - [Creacion de nuestra primera Base de datos](#CreaciondenuestraprimeraBasededatos)
 #### 1.8 - [**Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
 
+#### [2 - Comandos SQL para manipulación de registros](#manipulacion)
 
 
 
@@ -366,7 +367,7 @@ GO
 
 
 
-## Comandos SQL para manipulación de registros
+## Comandos SQL para manipulación de registros<a name="manipulacion"></a>
 ## ***Comando Select***
 #### La instrucción SELECT en SQL se usa para recuperar datos de una base de datos relacional. Sintaxis SQL: SELECT * FROM "table_name"; "table_name" es el nombre de la tabla donde se almacenan los datos, y "column_name" es el nombre de la columna que contiene los datos que se recuperarán.
 # 
