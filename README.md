@@ -381,8 +381,128 @@ GO
 #### El comando DELETE permitirá eliminar una o varias filas de una tabla. La sintaxis del comando DELETE es simple si no limitamos las filas. Si no se indica la cláusula WHERE, se borrarán todas las filas de la tabla.
 #
 
+Ejemplos:
+Select
+
+~~~sql
+  SELET * FROM [dbo].[Paciente] 
+~~~
+    En este caso, estoy extrayendo todos los campos de la tabla.
+
+Ejemmplo 
+~~~sql
+ SELET 
+ 	[idPaciente]
+	[nombre]
+	[apellido]
+	[fNacimiento] 
+	[domicilio]
+	[idPais]
+	[telefono]
+	[email]
+	[observacion] 
+	[fechaAlta]
+  FROM [dbo].[Paciente] 
+~~~
+    En este caso, también estoy seleccionando todos los campos de la tabla; pero en este caso estoy especificando sql uno por uno los campos que necesito
+    Esto 
 
 
+## Aprende a utilizar las condiciones con la cláusula WHERE de SQL
+#### La cláusula WHERE de SQL se utiliza para especificar una condición al recuperar un conjunto de datos de una tabla o de un conjunto de tablas. Si se cumple la condición dada, la consulta devuelve los valores relacionados con la condición que se especifique en la cláusula WHERE. Debe usar la cláusula WHERE para filtrar los registros y obtener solo los registros necesarios.
+# 
+#### La cláusula WHERE no solo se usa en la instrucción SELECT, sino que también se usa en la instrucción UPDATE y DELETE., que examinaríamos en los siguientes videos.
+# 
+#### Resumiendo:
+
+    La cláusula WHERE se utiliza para obtener datos filtrados de un conjunto de resultados.
+
+- Se utiliza para obtener datos de acuerdo con un criterio particular.
+- La palabra clave WHERE también se puede utilizar para filtrar datos al hacer coincidir patrones.
+- La cláusula WHERE se puede utilizar con los siguientes tipos de sentencias de SQL:
+    - SELECT
+    - UPDATE
+    - DELETE
+
+##### Sintaxis La sintaxis básica de la cláusula WHERE con **la instrucción SELECT** es la que se muestra a continuación.
+
+~~~SQL
+SELECT column1, column2, columnN FROM table_name WHERE [condición] 
+~~~
+# 
+#### La sintaxis para usar WHERE en la instrucción UPDATE es la siguiente:
+~~~sql
+UPDATE "table_name" SET "column_1" = nuevo valor WHERE "condición" 
+~~~
+
+#### La sintaxis para usar WHERE en la instrucción DELETE es la siguiente:
+~~~sql
+DELETE FROM "table_name" WHERE "condición";
+~~~
+#
+#### "Condición" puede incluir una única cláusula de comparación (llamada condición simple) o múltiples cláusulas de comparación combinadas utilizando los operadores AND u OR (condición compuesta).
+
+#### Además, la cláusula WHERE puede especificar una condición utilizando la comparación o los operadores lógicos como >, <, =, LIKE, NOT, etc. Los siguientes ejemplos te aclararan estos conceptos.
+
+    Ejemplos
+~~~sql
+select EmployeeID, 
+    LastName, 
+    FirstName, 
+    Title, 
+    Address 
+from Employees 
+    where Title= 'Sales Representative'
+~~~
+
+#### Es importante tener en cuenta que todas las cadenas deben estar entre comillas simples (''). Considerando que, los valores numéricos deben darse sin ninguna cita.
+
+
+## La cláusula WHERE con el operador OR
+#### Para ver todos los datos de los Representantes de Ventas y de los administradores de ventas usamos la siguiente consulta SQL.
+#
+~~~sql
+select EmployeeID, 
+        LastName, 
+        FirstName, 
+        Title, 
+        Address 
+    from Employees 
+    where Title= 'Sales Representative' or Title= 'Sales Manager'
+~~~
+
+## Usando WHERE con UPDATE y DELETE
+#### Como se mencionó anteriormente, la cláusula WHERE se puede usar con las instrucciones UPDATE y DELETE además de la instrucción SELECT. Los ejemplos de cómo usar la cláusula WHERE con estos dos comandos los veremos en los artículos de UPDATE y DELETE.
+
+
+    Ejercicios
+#### Para estos ejercicios, trabajermos con la tabla Employees de la base de datos Northwind
+
+d
+
+#### 1.- ¿Cuál de las siguientes sentencias de SQL es correcta? (Puede haber más de una respuesta)
+    1 SELECT * FROM Employees WHERE FirstName = 'Nancy';
+    2 SELECT * WHERE FirstName = 'Nancy' FROM Employees;
+    3 SELECT FirstName= 'CARLOS' FROM Employees;
+    4 SELECT FirstName FROM Employees WHERE FirstName = 'Nancy';
+
+#### 2.- ¿Cuál es el resultado de la siguiente consulta?
+~~~sql
+    SELECT EmployeeID, 
+            LastName, 
+            FirstName, 
+            Title, 
+            Address 
+    FROM Employees 
+        WHERE Address LIKE '4%';
+~~~
+#### _______________________________________________________________________
+
+#### 3.- (Verdadero o Falso) La condición utilizada en la cláusula WHERE debe incluir una columna que sea parte de la cláusula SELECT.________
+
+
+
+# 
 ## Comandos SQL para manipulación de registros
 
 ## Cláusulas SQL
