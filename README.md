@@ -413,7 +413,7 @@ Ejemmplo
 ## Aprende a utilizar las condiciones con la cláusula WHERE de SQL
 #### La cláusula WHERE de SQL se utiliza para especificar una condición al recuperar un conjunto de datos de una tabla o de un conjunto de tablas. Si se cumple la condición dada, la consulta devuelve los valores relacionados con la condición que se especifique en la cláusula WHERE. Debe usar la cláusula WHERE para filtrar los registros y obtener solo los registros necesarios.
 # 
-#### La cláusula WHERE no solo se usa en la instrucción SELECT, sino que también se usa en la instrucción UPDATE y DELETE., que examinaríamos en los siguientes videos.
+#### La cláusula WHERE no solo se usa en la instrucción SELECT, sino que también se usa en la instrucción UPDATE y DELETE., que examinaríamos en las siguientes Clases.
 # 
 #### Resumiendo:
 
