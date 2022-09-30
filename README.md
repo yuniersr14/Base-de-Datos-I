@@ -480,7 +480,6 @@ select EmployeeID,
     Ejercicios
 #### Para estos ejercicios, trabajermos con la tabla Employees de la base de datos Northwind
 
-d
 
 #### 1.- ¿Cuál de las siguientes sentencias de SQL es correcta? (Puede haber más de una respuesta)
     1 SELECT * FROM Employees WHERE FirstName = 'Nancy';
@@ -503,13 +502,13 @@ d
 #### 3.- (Verdadero o Falso) La condición utilizada en la cláusula WHERE debe incluir una columna que sea parte de la cláusula SELECT.________
 
 
-
+<!-- 
 # 
 ## Comandos SQL para manipulación de registros
 
-## Cláusulas SQL
+## Cláusulas SQL -->
 
-
+<!-- 
 # UNIDAD II
 
 ## Tipos de datos Sql
@@ -540,7 +539,7 @@ d
 
 ## Programando Stored Procedures de SELECT UPDATE y DELETE
 
-# 
+#  -->
 
 
 
