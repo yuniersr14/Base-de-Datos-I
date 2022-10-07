@@ -502,6 +502,113 @@ select EmployeeID,
 #### 3.- (Verdadero o Falso) La condición utilizada en la cláusula WHERE debe incluir una columna que sea parte de la cláusula SELECT.________
 
 
+
+# SQL JOIN
+
+#### La sentencia del “SQL JOIN” es uno de los componentes principales de la sentencia Select, que se utiliza para extraer datos del “SQL Server”.
+
+#### La palabra “Select” inicia la sentencia. A menudo es seguido por un asterisco (*) “AKA splat” como algunos lo llaman DBA.
+# 
+###### Nota: para expandir automáticamente los comodines a las columnas explícitas, consulte How to prevent performance problems and errors due to wildcards in SELECT statements
+#
+#### Esto solo significa retornar a todas las columnas. Si tenemos varias tablas, un Select asterisco capturará todas las columnas de todas las tablas, por ejemplo, unir varias tablas usando la sentencia de “SQL JOIN”, que es el tema principal de este artículo.
+#
+#### Empezaremos con la definición. Join es el proceso de tomar datos de varias tablas y colocarlos en una vista generada. Por tanto, una instrucción de “SQL JOIN” en un comando Select combina las columnas entre una o más tablas en una base de datos relacional y retorna a un conjunto de datos.
+#
+#### “El FROM” también es parte esencial de la instrucción Select y es aquí donde se especifica de qué tabla estamos extrayendo los datos. La parte de join es donde queremos unir datos de varias tablas y tenemos tres tipos diferentes de combinaciones:
+# 
+#### Inner join – esta es la opción predeterminada. Si no se especifica el tipo de unión, se establecerá de manera predeterminada como la unión interna. Esto implica que si estamos uniendo dos tablas en una columna común, solo retornaran los datos que coincidan en ambas tablas
+![](https://www.sqlshack.com/wp-content/uploads/2018/10/word-image-150.png)
+
+
+#
+
+
+#### Left join – este tipo de unión significa que solo retornan todos los datos de la tabla de la mano izquierda, solo si los datos coinciden con la tabla de la mano derecha
+![](https://www.sqlshack.com/wp-content/uploads/2018/10/word-image-151.png)
+#
+
+#### Right join – este tipo de unión es el caso opuesto al anterior. Implica que solo retornaran los datos de la tabla de la mano derecha, solo si los datos coinciden con la tabla de la mano izquierda
+![](https://www.sqlshack.com/wp-content/uploads/2018/10/word-image-152.png)
+#
+
+
+## Select usando Inner Join
+
+#### Vayamos hasta SQL Server Management Studio (SSMS) y verifiquemos cómo se puede trabajar con la instrucción de “SQL JOIN” utilizando ejemplos del mundo real. A continuación, mostramos un ejemplo de cómo unir tablas en una columna común. En nuestra base de datos de ejemplo AdventureWorks2012, tenemos la tabla “Producto” que tiene una columna “ProductID” y en la tabla “SalesOrderDetail”, también se tiene una columna “ProductID”. Entonces, si deseamos averiguar las ventas totales y los descuentos para cada producto y sacar el nombre, debemos unir estos dos en esta columna común:
+#
+~~~sql
+USE AdventureWorks2012;
+GO
+
+SELECT 
+    p.Name AS ProductName, 
+    NonDiscountSales = (OrderQty * UnitPrice),
+    Discounts = ((OrderQty * UnitPrice) * UnitPriceDiscount)
+FROM Production.Product AS p 
+JOIN Sales.SalesOrderDetail AS sod
+    ON p.ProductID = sod.ProductID 
+ORDER BY ProductName DESC;
+GO
+~~~
+#### ome en cuenta que, si solo se especifica JOIN por sí mismo, sin una palabra clave interna en la sentencia de “SQL JOIN”, seguirá siendo un INNER JOIN. Por supuesto, puede poner la palabra clave “inner” para mayor claridad, pero si no hay una combinación de etiqueta izquierda / derecha, se establecerá por defecto una combinación interna:
+#
+![](https://www.sqlshack.com/wp-content/uploads/2018/10/word-image-153.png)
+#
+
+## Select usando LEFT JOIN
+
+#### Ahora, démosle un vistazo al LEFT OURTER JOIN que nos ofrece todo desde la tabla de la izquierda y solo los registros que coinciden en la tabla de la derecha. En nuestro ejemplo, la siguiente consulta nos dará algunas personas que no han realizado ninguna compra:
+#
+
+~~~sql
+
+SELECT *
+FROM Person.Person p
+LEFT JOIN Sales.PersonCreditCard pcc ON p.BusinessEntityID = pcc.BusinessEntityID
+~~~
+
+
+![](https://www.sqlshack.com/wp-content/uploads/2018/10/word-image-154a.png)
+#
+#### El conjunto de resultados indica que retornaron 19972 registros, y se tiene un grupo de valores nulos en la columna “BusinessEntityID”. Las filas que tienen nulos son personas que no realizaron ninguna compra.
+#
+#### Se puede extender de la consulta anterior y agregar otra sentencia de “SQL JOIN” para poder incluir a las personas con la información de la tarjeta de crédito. Tome en cuenta que se acaba de especificar la palabra clave Join, que es una combinación interna de forma predeterminada y eliminará todos los valores nulos porque esas personas no tienen información de la tarjeta de crédito:
+#
+
+## Select usando Right Join
+#### Ahora, la cláusula RIGHT JOIN es exactamente lo opuesto a LEFT JOIN. Básicamente hacen lo mismo. La izquierda es derecha y la derecha es izquierda y se puede obtener el mismo efecto simplemente cambiando las tablas. Los RIGHT JOIN no están en omitidas, simplemente no son tan comunes. Por razones de consistencia, es una práctica común utilizar LEFT JOIN en lugar de uniones derechas.
+#
+
+
+## Practicas
+
+- 1  para obtener en Northwind los clientes que tengan algún pedido, bastaría con escribir
+~~~sql
+SELECT OrderID, C.CustomerID, CompanyName, OrderDate
+FROM Customers C INNER JOIN Orders O ON C.CustomerID = O.CustomerID 
+~~~
+
+- 2 todos los clientes y sus pedidos, incluso aunque no tengan pedido alguno.
+~~~sql
+SELECT OrderID, C.CustomerID, CompanyName, OrderDate
+FROM Customers C LEFT JOIN Orders O ON C.CustomerID = O.CustomerID 
+~~~
+
+ - 3 odos los pedidos aunque no tengan cliente asociado
+ ~~~sql
+SELECT OrderID, C.CustomerID, CompanyName, OrderDateFROM Customers C RIGHT JOIN Orders O ON C.CustomerID = O.CustomerID
+ ~~~
+
+
+- los clientes y sus pedidos, los clientes sin pedido (hay 2) y los pedidos sin cliente (que en este caso son 0).
+~~~sql
+SELECT OrderID, C.CustomerID, CompanyName, OrderDate
+FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
+~~~
+
+
+
 <!-- 
 # 
 ## Comandos SQL para manipulación de registros
