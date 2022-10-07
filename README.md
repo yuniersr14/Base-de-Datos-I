@@ -16,7 +16,7 @@
 #### 1.8 - [**Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
 
 #### [2 - Comandos SQL para manipulación de registros](#manipulacion)
-
+#### [3 - SQL JOIN](#join)
 
 
 # Unidad I <a name="UnidadI"></a>
@@ -503,7 +503,7 @@ select EmployeeID,
 
 
 
-# SQL JOIN
+# SQL JOIN<a name="join"></a>
 
 #### La sentencia del “SQL JOIN” es uno de los componentes principales de la sentencia Select, que se utiliza para extraer datos del “SQL Server”.
 
@@ -606,6 +606,10 @@ SELECT OrderID, C.CustomerID, CompanyName, OrderDateFROM Customers C RIGHT JOIN 
 SELECT OrderID, C.CustomerID, CompanyName, OrderDate
 FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
 ~~~
+
+
+#
+
 
 
 
