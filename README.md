@@ -15,8 +15,10 @@
 #### 1.7 - [Creacion de nuestra primera Base de datos](#CreaciondenuestraprimeraBasededatos)
 #### 1.8 - [**Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
 
-#### [2 - Comandos SQL para manipulación de registros](#manipulacion)
-#### [3 - SQL JOIN](#join)
+#### 2 - [ Comandos SQL para manipulación de registros](#manipulacion)
+#### 3 - [ SQL JOIN](#join)
+
+#### 3.1 -[  Practicas](#practicaJoin)
 
 
 # Unidad I <a name="UnidadI"></a>
@@ -581,7 +583,7 @@ LEFT JOIN Sales.PersonCreditCard pcc ON p.BusinessEntityID = pcc.BusinessEntityI
 #
 
 
-## Practicas
+## Practicas<a name="practicaJoin"></a>
 
 - 1  para obtener en Northwind los clientes que tengan algún pedido, bastaría con escribir
 ~~~sql
