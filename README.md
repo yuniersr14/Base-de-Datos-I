@@ -5,20 +5,35 @@
 
 # Base-de-Datos-I
 
-## 1 - [Unidad I](#UnidadI)
-#### 1.1 - [¿Que es SQL?](#Queessql)
-#### 1.2 - [¿Qué es T-SQL?](#QuéesT-SQL)
-#### 1.3 - [Microsoft SQL Server](#MicrosoftSQLServer)
-#### 1.4 - [UNIDADES DE MEDIDA EN INFORMATICA](#UNIDADESDEMEDIDAENINFORMATICA)
-#### 1.5 - [TIPOS DE DATO SQL SERVER](#TIPOSDEDATOSQLSERVER)
-#### 1.6 - [Integridad de la Base de Datos](#IntegridaddelaBasedeDatos)
-#### 1.7 - [Creacion de nuestra primera Base de datos](#CreaciondenuestraprimeraBasededatos)
-#### 1.8 - [**Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
+## [1 - Unidad I](#UnidadI)
+#### [1.1 - ¿Que es SQL?](#Queessql)
+#### [1.2 - ¿Qué es T-SQL?](#QuéesT-SQL)
+#### [1.3 - Microsoft SQL Server](#MicrosoftSQLServer)
+#### [1.4 - UNIDADES DE MEDIDA EN INFORMATICA](#UNIDADESDEMEDIDAENINFORMATICA)
+#### [1.5 - TIPOS DE DATO SQL SERVER](#TIPOSDEDATOSQLSERVER)
+#### [1.6 - Integridad de la Base de Datos](#IntegridaddelaBasedeDatos)
+#### [1.7 - Creacion de nuestra primera Base de datos](#CreaciondenuestraprimeraBasededatos)
+#### [1.8 - **Ejercicio** Crear las Tablas de nuestra Base de datos.](#EjercicioCrearlasTablasdenuestraBasededatos)
 
-#### 2 - [ Comandos SQL para manipulación de registros](#manipulacion)
-#### 3 - [ SQL JOIN](#join)
+#### [2 -  Comandos SQL para manipulación de registros](#manipulacion)
+#### [3 -  SQL JOIN](#join)
 
-#### 3.1 -[  Practicas](#practicaJoin)
+#### [3.1 -  Practicas](#practicaJoin)
+
+#### [4.0 -Explicaiones sobre los funciones](#expli_funciones)
+##### - [ 4.1 -AVG](#avg)
+##### - [ 4.2 Count](#Count)
+##### - [ 4.3 Max, Min](#minmax)
+##### - [ 4.3.1 Les mostraré algunos ejemplos para su uso en este Bolque](#ejemminmax)
+##### - [4,3.2 SQL MAX con GROUP BY Ejemplos](#SqlmaxGroupEj)
+##### - [4.3.3 La funcion Sql MIN](#FuncSqlMin)
+#### - [4.4 Sum](#sum)
+#### - [4,5 StDev, StDevP](#StDevP)
+#### - [4.6 Var, VarP](#VarP)
+
+
+
+
 
 
 # Unidad I <a name="UnidadI"></a>
@@ -614,9 +629,9 @@ FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
 
 
 #
-# Explicaiones sobre los funciones...
+# Explicaiones sobre los funciones...<a name="expli_funciones"></a>
 
-# AVG
+# AVG<a name="avg"></a>
 
 
 #### Calcula la media aritmética de un conjunto de valores contenidos en un campo especificado de una consulta. Su sintaxis es la siguiente
@@ -633,7 +648,7 @@ FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
 
 
 
-# Count
+# Count<a name="Count"></a>
 
 
 #### Calcula el número de registros devueltos por una consulta. Su sintaxis es la siguiente:
@@ -652,7 +667,7 @@ FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
     SELECT Count(FechaEnvío & Transporte) AS Total FROM Pedidos;
 ~~~
 
-# Max, Min
+# Max, Min <a name="minmax"></a>
 
 
 #### Devuelven el mínimo o el máximo de un conjunto de valores contenidos en un campo especifico de una consulta. Su sintaxis es:
@@ -675,7 +690,7 @@ FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
 
 #### ¿Cómo funcionan SQL min() y max()? ¿Cómo puedo combinar agregados? ¿Pueden funcionar con fechas? para realizar multiples analisis en SQL debemos usa la función agregada MIN() o MAX(). A menudo estas funcion empleadas por profesionales pueden ser útiles para resolver diversos problemas de analisis. 
 # 
-#### Les mostraré algunos ejemplos para su uso en este artículo.
+#### Les mostraré algunos ejemplos para su uso en este Bolque.<a name="ejemminmax"></a>
 
 ## La funcion SQL MIN() y MAX() 
 #### MIN() devuelve el valor minimo de la columna seleccionada. La función MAX devuelve el valor máximo para las columnas seleccionadas.
@@ -703,7 +718,7 @@ select
 from [Order Details] o
 ~~~
 #
-## SQL MAX con GROUP BY Ejemplos
+## SQL MAX con GROUP BY Ejemplos<a name="SqlmaxGroupEj"></a>
 #### El método más utilizado es el uso de una función Max en conjunción con la cláusula Group BY encontrar el valor más alto para cada grupo. La función MAX se utiliza para determinar el salario máximo para un empleado de la siguiente manera:
 
     Select departamento, max(salario) from empleados
@@ -719,7 +734,7 @@ group by OrderID
 ~~~
 # 
 
-## La funcion Sql MIN
+## La funcion Sql MIN<a name="FuncSqlMin"></a>
 #### Esta funcion retorna el valor minimo que tiene un campo en una tabla , esto podria ser la forma mas simple de utilizar este comando
 ## Ejemplos de la funcion MIN con una columna
 
@@ -801,7 +816,7 @@ Esto presentaria un resultado similar a esto.
 
 # 
 
-# Sum
+# Sum<a name="sum"></a>
 
 
 #### Devuelve la suma del conjunto de valores contenido en un campo especifico de una consulta. Su sintaxis es:
@@ -815,7 +830,7 @@ Esto presentaria un resultado similar a esto.
 ~~~
 
 
-# StDev, StDevP
+# StDev, StDevP <a name="StDevP"></a>
 
 
 #### Devuelve estimaciones de la desviación estándar para la población (el total de los registros de la tabla) o una muestra de la población representada (muestra aleatoria) . Su sintaxis es:
@@ -833,7 +848,7 @@ Esto presentaria un resultado similar a esto.
 ~~~
 
 
-# Var, VarP
+# Var, VarP<a name="VarP"></a>
 
 
 #### Devuelve una estimación de la varianza de una población (sobre el total de los registros) o una muestra de la población (muestra aleatoria de registros) sobre los valores de un campo. Su sintaxis es:
