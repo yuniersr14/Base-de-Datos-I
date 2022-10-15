@@ -613,9 +613,264 @@ FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
 #
 
 
+#
+# Explicaiones sobre los funciones...
+
+# AVG
+
+
+#### Calcula la media aritmética de un conjunto de valores contenidos en un campo especificado de una consulta. Su sintaxis es la siguiente
+
+     Avg(expr)
+
+#### En donde expr representa el campo que contiene los datos numéricos para los que se desea calcular la media o una expresión que realiza un cálculo utilizando los datos de dicho campo. La media calculada por Avg es la media aritmética (la suma de los valores dividido por el número de valores). La función Avg no incluye ningún campo Null en el cálculo.
+
+~~~sql
+    SELECT Avg(Gastos) AS Promedio FROM Pedidos WHERE Gastos > 100;
+~~~
+
+
+
+
+
+# Count
+
+
+#### Calcula el número de registros devueltos por una consulta. Su sintaxis es la siguiente:
+
+    Count(expr)
+
+#### En donde expr contiene el nombre del campo que desea contar. Los operandos de expr pueden incluir el nombre de un campo de una tabla, una constante o una función (la cual puede ser intrínseca o definida por el usuario pero no otras de las funciones agregadas de SQL). Puede contar cualquier tipo de datos incluso texto.
+
+#### Aunque expr puede realizar un cálculo sobre un campo, Count simplemente cuenta el número de registros sin tener en cuenta qué valores se almacenan en los registros. La función Count no cuenta los registros que tienen campos null a menos que expr sea el carácter comodín asterisco (*). Si utiliza un asterisco, Count calcula el número total de registros, incluyendo aquellos que contienen campos null. Count(*) es considerablemente más rápida que Count(Campo). No se debe poner el asterisco entre dobles comillas ('*').
+~~~sql
+    SELECT Count(*) AS Total FROM Pedidos;
+~~~
+#### Si expr identifica a múltiples campos, la función Count cuenta un registro sólo si al menos uno de los campos no es Null. Si todos los campos especificados son Null, no se cuenta el registro. Hay que separar los nombres de los campos con ampersand (&).
+
+~~~sql
+    SELECT Count(FechaEnvío & Transporte) AS Total FROM Pedidos;
+~~~
+
+# Max, Min
+
+
+#### Devuelven el mínimo o el máximo de un conjunto de valores contenidos en un campo especifico de una consulta. Su sintaxis es:
+
+    Min(expr)
+    Max(expr)
+
+#### En donde expr es el campo sobre el que se desea realizar el cálculo. Expr pueden incluir el nombre de un campo de una tabla, una constante o una función (la cual puede ser intrínseca o definida por el usuario pero no otras de las funciones agregadas de SQL).
+
+###### Ejemplo 1
+~~~sql
+    SELECT Min(Gastos) AS ElMin FROM Pedidos WHERE Pais = 'España';
+~~~
+###### Ejemplo 2
+~~~sql   
+    SELECT Max(Gastos) AS ElMax FROM Pedidos WHERE Pais  = 'España';
+~~~
+
+## SQL MIN y MAX funcions explicadas con ejemplos
+
+#### ¿Cómo funcionan SQL min() y max()? ¿Cómo puedo combinar agregados? ¿Pueden funcionar con fechas? para realizar multiples analisis en SQL debemos usa la función agregada MIN() o MAX(). A menudo estas funcion empleadas por profesionales pueden ser útiles para resolver diversos problemas de analisis. 
+# 
+#### Les mostraré algunos ejemplos para su uso en este artículo.
+
+## La funcion SQL MIN() y MAX() 
+#### MIN() devuelve el valor minimo de la columna seleccionada. La función MAX devuelve el valor máximo para las columnas seleccionadas.
+
+#### La sintaxis de la función MAX en SQL utiliza la siguiente sintaxis:
+~~~sql
+   Select max(Nombre_columna) from Nombre_tabla
+~~~
+
+
+#### Generalmente la forma más fácil de usar SQL MAX es devolver sólo un campo para calcular los valores MAX. 
+# 
+#### También puede necesitar una lista de salarios para cada empleado. Este ejemplo de función SQL MAX se da  para sacar el  salario mas alto utilizando MAX(salario) 
+
+#### En efecto, los nombres de campo se muestran como campos en los resultados devueltos.
+
+![](./images/sqlMaxResultadoSalario.png)
+
+
+#### El siguiente codigo retorna el valor de ***orderDetails*** que tienen el valor de Quantity mas alto
+
+~~~sql
+select 
+  max( o.Quantity)
+from [Order Details] o
+~~~
+#
+## SQL MAX con GROUP BY Ejemplos
+#### El método más utilizado es el uso de una función Max en conjunción con la cláusula Group BY encontrar el valor más alto para cada grupo. La función MAX se utiliza para determinar el salario máximo para un empleado de la siguiente manera:
+
+    Select departamento, max(salario) from empleados
+
+#### El Siguiente codigo es un ejemplo del uso de **max** con un group by , el mismo retorna el valor mayor de campo **Quantity** para cada orden de la tabla **[OrderDetail]**
+
+~~~sql
+select 
+    orderid
+    ,max( o.Quantity)
+from [Order Details] o
+group by OrderID
+~~~
+# 
+
+## La funcion Sql MIN
+#### Esta funcion retorna el valor minimo que tiene un campo en una tabla , esto podria ser la forma mas simple de utilizar este comando
+## Ejemplos de la funcion MIN con una columna
+
+#### Generalmente la forma más fácil de usar SQL MAX es devolver sólo un campo para calcular los valores MAX. También puede necesitar una lista de salarios para cada empleado. Este ejemplo de función SQLMAX se da en los campos MAX(salario) con salarios altos. En efecto, los nombres de campo se muestran como campos en los resultados devueltos.
+#
+|nombre | apellido | salario |departamento | fecha|
+|----------|----------|----------|----------|----------|
+|jose | marte | $2,500 | IT | 1/1/2005| 
+|Mario |Perez | $500 | contabilidad | 12/12/2016|
+|jose | mateo | $1,500 | IT | 01/03/2022|
+
+
+
+#### Al ejecutar la siguiente consulta
+    Select Min (Salario) from empleados
+
+#### El resultado de esta consulta seria $500, debido a que la funcion min buscara el valor minimo dentro de esta columna
+
+
+## SQL Min con GROUP BY Ejemplos
+#### El método más utilizado es el uso de una función min en conjunción con la cláusula Group BY para encontrar el valor más bajo para cada grupo. La función Minse utiliza para determinar el salario min para un departamento de la siguiente manera:
+
+    Select departamento, Min (salario) from empleados
+
+## Group by departamento
+
+#### El resultado seria que el mostraria el salario mas bajo por departamento
+~~~sql
+Select 
+ Departamento
+, min(Salario)
+from empleados
+~~~
+
+Nos Retornaria el siguiente resultado
+
+|Departamento | Salario |
+|-------------|---------|
+|IT           | $1,500  |
+|contabilidad | $500    |
+
+
+## Otros ejemplos de MAX Y MIN con Having SQL
+#### funcion sql max y sql min son utilizandas en conjunto con having para filtrar los registros agrupados.
+#
+#### Esto seria una forma de filtrar los datos pero en vez de hacerlo con un Where lo hacemos con un Having desde el group by.
+#
+#### Veamos un ejemplo de este codigo con nuestra tabla de **orderDetail**
+
+~~~sql
+select 
+orderid
+,max( o.Quantity) ValorMaximo
+from [Order Details] o
+group by OrderID
+	having max(o.Quantity) > 50
+
+~~~
+Esto presentaria un resultado similar a esto.
+
+|orderid |	ValorMaximo|
+|--------|-------------|
+|10258	|65|
+|10263	|60|
+|10267	|70|
+|10269	|60|
+|10273	|60|
+|10286	|100|
+|10297	|60|
+
+#
+#### Al agregar la instruccion 
+~~~sql
+	having max(o.Quantity) > 50
+~~~
+#### A codigo lo que hacemos es filtar a traves de group by los elementos del campo Quantity que son mayores a 50
+
+
+
+# 
+
+# Sum
+
+
+#### Devuelve la suma del conjunto de valores contenido en un campo especifico de una consulta. Su sintaxis es:
+
+    Sum(expr)
+
+#### En donde expr respresenta el nombre del campo que contiene los datos que desean sumarse o una expresión que realiza un cálculo utilizando los datos de dichos campos. Los operandos de expr pueden incluir el nombre de un campo de una tabla, una constante o una función (la cual puede ser intrínseca o definida por el usuario pero no otras de las funciones agregadas de SQL).
+
+~~~sql
+    SELECT Sum(PrecioUnidad * Cantidad) AS Total FROM DetallePedido;
+~~~
+
+
+# StDev, StDevP
+
+
+#### Devuelve estimaciones de la desviación estándar para la población (el total de los registros de la tabla) o una muestra de la población representada (muestra aleatoria) . Su sintaxis es:
+
+    StDev(expr)
+    StDevP(expr)
+
+#### En donde expr representa el nombre del campo que contiene los datos que desean evaluarse o una expresión que realiza un cálculo utilizando los datos de dichos campos. Los operandos de expr pueden incluir el nombre de un campo de una tabla, una constante o una función (la cual puede ser intrínseca o definida por el usuario pero no otras de las funciones agregadas de SQL)
+
+#### StDevP evalúa una población, y StDev evalúa una muestra de la población. Si la consulta contiene menos de dos registros (o ningún registro para StDevP), estas funciones devuelven un valor Null (el cual indica que la desviación estándar no puede calcularse).
+
+~~~sql
+    SELECT StDev(Gastos) AS Desviacion FROM Pedidos WHERE Pais = 'España';
+    SELECT StDevP(Gastos) AS Desviacion FROM Pedidos WHERE Pais = 'España';
+~~~
+
+
+# Var, VarP
+
+
+#### Devuelve una estimación de la varianza de una población (sobre el total de los registros) o una muestra de la población (muestra aleatoria de registros) sobre los valores de un campo. Su sintaxis es:
+
+    Var(expr)
+    VarP(expr)
+
+#### VarP evalúa una población, y Var evalúa una muestra de la población. Expr el nombre del campo que contiene los datos que desean evaluarse o una expresión que realiza un cálculo utilizando los datos de dichos campos. Los operandos de expr pueden incluir el nombre de un campo de una tabla, una constante o una función (la cual puede ser intrínseca o definida por el usuario pero no otras de las funciones agregadas de SQL)
+
+#### Si la consulta contiene menos de dos registros, Var y VarP devuelven Null (esto indica que la varianza no puede calcularse). Puede utilizar Var y VarP en una expresión de consulta o en una Instrucción SQL.
+
+~~~sql
+    SELECT Var(Gastos) AS Varianza FROM Pedidos WHERE Pais = 'España';
+    SELECT VarP(Gastos) AS Varianza FROM Pedidos WHERE Pais = 'España';
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- 
+
+
+
 # 
 ## Comandos SQL para manipulación de registros
 
