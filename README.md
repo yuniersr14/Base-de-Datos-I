@@ -692,7 +692,7 @@ FROM Customers C FULL JOIN Orders O ON C.CustomerID = O.CustomerID
 
 #### En efecto, los nombres de campo se muestran como campos en los resultados devueltos.
 
-![](./images/sqlMaxResultadoSalario.png)
+<!-- ![](./images/sqlMaxResultadoSalario.png) -->
 
 
 #### El siguiente codigo retorna el valor de ***orderDetails*** que tienen el valor de Quantity mas alto
