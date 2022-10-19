@@ -505,8 +505,78 @@ select EmployeeID,
 
 # 
 
+# Practicas
 
-## nuevo material*****
+~~~sql
+Select count(*) Total from Employees
+~~~
+
+
+~~~sql
+select Avg(UnitPrice) as AVGPrice from [Order Details]
+~~~
+
+~~~sql
+Select Min(UnitPrice) as Pmenor from  [Order Details]
+~~~
+
+~~~sql
+Select Max(UnitPrice) as Pmenor from  [Order Details]
+~~~
+
+~~~sql
+select 
+min(o.OrderDate) fechaMinima
+,max(o.orderDate) fechaMaxima
+from Orders O
+~~~
+
+~~~sql
+select 
+    orderid
+    ,max( o.Quantity)
+from [Order Details] o
+group by OrderID
+~~~
+
+~~~sql
+select 
+orderid
+,max( o.Quantity) ValorMaximo
+from [Order Details] o
+group by OrderID
+	having max(o.Quantity) > 50
+~~~
+
+
+~~~sql
+select 
+  stdev(o.Quantity) desviacion
+from [Order Details] o
+~~~
+
+~~~sql
+select 
+  stdevp(o.Quantity) desviacion
+from [Order Details] o
+~~~
+
+~~~sql
+select 
+  Var(o.Quantity) desviacion
+from [Order Details] o
+~~~
+
+~~~sql
+select 
+  Varp(o.Quantity) desviacion
+from [Order Details] o
+~~~
+
+# 
+
+
+<!-- ## nuevo material***** -->
 
 
 <!-- 
