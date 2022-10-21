@@ -31,6 +31,10 @@
 #### - [4,5 StDev, StDevP](#StDevP)
 #### - [4.6 Var, VarP](#VarP)
 
+#### - [5 Creación de un procedimiento almacenado](#procedure)
+#### - [5.1 Permisos](#permisosSP)
+#### - [5.3 Usar Transact-SQL](#Transact-SQL)
+
 
 
 
@@ -946,6 +950,13 @@ from [Order Details] o
 
 # 
 
+## Creación de un procedimiento almacenado<a name="procedure"></a>
+
+#### En este tema se describe cómo crear un procedimiento almacenado de Transact-SQL mediante SQL Server Management Studio y mediante la instrucción CREATE PROCEDURE de Transact-SQL.
+
+
+## Permisos<a name="permisosSP"></a>
+#### Requiere el permiso CREATE PROCEDURE en la base de datos y el permiso ALTER en el esquema en el que se va a crear el procedimiento.
 
 
 
@@ -954,8 +965,86 @@ from [Order Details] o
 
 
 
+## Usar Transact-SQL<a name="Transact-SQL"></a>
+#### Para crear un procedimiento en el Editor de consultas
+
+-  En el Explorador de objetos, conéctese a una instancia del Motor de base de datos.
+
+- En el menú Archivo , haga clic en Nueva consulta.
+
+- Copie y pegue el siguiente ejemplo en la ventana de consulta y haga clic en Ejecutar. En este ejemplo se crea el mismo procedimiento almacenado que antes con otro nombre diferente.
+
+~~~sql
+USE AdventureWorks2012;  
+GO  
+CREATE PROCEDURE HumanResources.uspGetEmployeesTest2   
+    @LastName nvarchar(50),   
+    @FirstName nvarchar(50)   
+AS   
+
+    SET NOCOUNT ON;  
+    SELECT FirstName, LastName, Department  
+    FROM HumanResources.vEmployeeDepartmentHistory  
+    WHERE FirstName = @FirstName AND LastName = @LastName  
+    AND EndDate IS NULL;  
+GO
+~~~
 
 
+
+
+#### Si tenemos el Siguiente Query.
+~~~sql
+Declare @CustomerID varchar(5) = 'ALFKI'
+
+--select * from Customers
+
+
+SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName
+~~~
+
+procederemos crear un store procedure con el.
+Para mostrar este tipo de cosas me gusta mostrar ejemplos.
+
+
+
+
+~~~ sql
+Create PROCEDURE [dbo].[CustOrderHist2] @CustomerID nchar(5)
+AS
+SELECT ProductName, Total=SUM(Quantity)
+FROM Products P, [Order Details] OD, Orders O, Customers C
+WHERE C.CustomerID = @CustomerID
+AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID
+GROUP BY ProductName
+
+~~~
+
+
+### Como puedes ver la Creacion de procedimiento se hace con las palabrar reservadas **Create Store Procedure** seguido del nombre del procedure.  
+#
+### Inmediatamente despues debes colocar los parametros del procedure si los tiene.
+#
+### Despues de la palabra reservada **AS** colocamos el codigo del que debe ejecutar el procedure.
+#
+
+
+
+#### Para ejecutar el procedimiento, copie y pegue el ejemplo siguiente en una nueva ventana de consulta y haga clic en Ejecutar. Observe que se muestran diferentes métodos para especificar los valores de parámetro.
+
+~~~sql
+EXECUTE HumanResources.uspGetEmployeesTest2 N'Ackerman', N'Pilar';  
+-- Or  
+EXEC HumanResources.uspGetEmployeesTest2 @LastName = N'Ackerman', @FirstName = N'Pilar';  
+GO  
+-- Or  
+EXECUTE HumanResources.uspGetEmployeesTest2 @FirstName = N'Pilar', @LastName = N'Ackerman';  
+GO
+~~~
 
 
 <!-- 
