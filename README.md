@@ -1077,9 +1077,26 @@ GO
 
 # 
 
+## Resultado: 
+~~~sql
 
+select 
+    C.CompanyName
+    ,C.Country
+    ,C.Phone
+    ,o.OrderDate
+    ,pd.ProductName
+    ,od.UnitPrice
+    ,od.Quantity
+    ,od.UnitPrice * Quantity total
+from [dbo].[Customers] C
+    join [dbo].[Orders] o on o.CustomerID = C.CustomerID
+    join [dbo].[Order Details] od on od.OrderID = o.OrderID
+    join [dbo].[Products] pd on pd.ProductID = od.Pr
+~~~
 
-
+![](/images/querycustomerorder.png)
+#
 
 
 
