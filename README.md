@@ -1078,7 +1078,7 @@ GO
 # 
 
 ## Resultado: 
-~~~sql
+<!-- ~~~sql
 
 select 
     C.CompanyName
@@ -1096,6 +1096,7 @@ from [dbo].[Customers] C
 ~~~
 
 ![](/images/querycustomerorder.png)
+ -->
 #
 
 
