@@ -1046,6 +1046,17 @@ EXECUTE HumanResources.uspGetEmployeesTest2 @FirstName = N'Pilar', @LastName = N
 GO
 ~~~
 
+# 
+
+# practicas de uniones en tablas
+
+
+
+
+
+
+
+
 
 <!-- 
 

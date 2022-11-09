@@ -1,0 +1,99 @@
+1 es una sentencia SQL que añade datos a una tabla.
+Select
+INSERT 
+UPDATE
+DELETE
+
+2.- ¿Cuál es el resultado de la siguiente consulta?
+
+   SELECT EmployeeID, 
+            LastName, 
+            FirstName, 
+            Title, 
+            Address 
+    FROM Employees 
+        WHERE Address LIKE '4%';
+
+
+Trae todo los registros de la tabla employees
+Trae los registros de la tabla employees donde el Campo Address sea igual a '4%'
+Trae los registros de la tabla employees donde el Campo Address Finalice con '4%' independientemente de lo que tenga delante
+**Trae los registros de la tabla employees donde el Campo Address Inicie con '4%' independientemento de lo que tenga despues 
+
+
+
+3.- La condición utilizada en la cláusula WHERE debe incluir una columna que sea parte de la cláusula SELECT.________
+(
+Verdadero 
+o **Falso
+) 
+
+4 Esta funcion retorna el valor minimo que tiene un campo en una tabla 
+min
+max
+sum
+avg
+count
+group by
+having
+
+5 Al agregar la instruccion "having max(o.Quantity) > 50" al group by
+
+ Solo trae los registros con o.Quantity = 50
+ **Filtar a traves de group by los elementos del campo Quantity que son mayores a 50
+ La instruccion having no exite en sql esto da un error.
+ Ninguna de las anteriores es correcta.
+
+6 Devuelve la suma del conjunto de valores contenido en un campo especifico de una consulta.
+min
+max
+**sum
+avg
+count
+group by
+having
+
+7  Para la Creación de un procedimiento almacenado utilizamos la intruccion:
+ ** CREATE PROCEDURE
+ CREATE function
+ CREATE Trigger
+ exec procedure
+
+* 8 la instruccion   "Declare @CustomerID varchar(5) = 'ALFKI'" :
+ Crea la Variable @CustomerID y le asigna el valor 'ALFKI'
+ Crea el procedure @CustomerID  y lo inicializa
+ Crea una tabla temporal en Sql con el campo  'ALFKI'
+ Ninguna de las anteriores esto dara un error.
+
+9 ¿Cuáles de las siguientes sentencias de SQL es correcta? (Puede haber más de una respuesta)
+
+** 1 SELECT * FROM Employees WHERE FirstName = 'Nancy';
+2 SELECT * WHERE FirstName = 'Nancy' FROM Employees;
+3 SELECT FirstName= 'CARLOS' FROM Employees;
+**4 SELECT FirstName FROM Employees WHERE FirstName = 'Nancy';
+
+
+
+10 La cláusula WHERE se puede utilizar con los siguientes tipos de sentencias de SQL
+SELECT
+Insert
+UPDATE
+DELETE
+
+11 Inner join – esta es la opción predeterminada. Si no se especifica el tipo de unión, se establecerá de manera predeterminada como la unión interna
+**Verdadero
+falso
+
+
+12 Left join – este tipo de unión significa que solo retornan todos los datos de la tabla de la mano izquierda, solo si los datos coinciden con la tabla de la mano derecha
+**Verdadero
+falso
+
+13 Right join – este tipo de unión significa que solo retornan todos los datos de la tabla de la mano izquierda, solo si los datos coinciden con la tabla de la mano derecha
+Verdadero
+**falso
+
+14 La cláusula WHERE de SQL se utiliza para especificar una condición al recuperar un conjunto de datos de una tabla o de un conjunto de tablas
+**Verdadero
+falso
+
