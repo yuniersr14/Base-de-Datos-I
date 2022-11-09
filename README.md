@@ -34,8 +34,11 @@
 #### - [5 Creación de un procedimiento almacenado](#procedure)
 #### - [5.1 Permisos](#permisosSP)
 #### - [5.3 Usar Transact-SQL](#Transact-SQL)
+#### - [Practica en clase del 9 de Noviembre del 2022](#2022-11-09)
 
 
+
+#
 
 
 
@@ -1050,6 +1053,29 @@ GO
 
 # practicas de uniones en tablas
 
+
+#  Practica en clase del 9 de Noviembre del 2022<a name="2022-11-09"></a>
+
+
+
+## Hacer consulta que extraiga 
+    CompanyName
+    Country
+    Phone
+    OrderDate
+    ProductName
+    UnitPrice
+    Quantity
+
+## de las tablas 
+
+    [dbo].[Customers] 
+    [dbo].[Orders]
+    [dbo].[Order Details] 
+    [dbo].[Products] 
+
+
+# 
 
 
 
