@@ -1078,7 +1078,7 @@ GO
 # 
 
 ## Resultado: 
-<!-- ~~~sql
+~~~sql
 
 select 
     C.CompanyName
@@ -1094,7 +1094,7 @@ from [dbo].[Customers] C
     join [dbo].[Order Details] od on od.OrderID = o.OrderID
     join [dbo].[Products] pd on pd.ProductID = od.Pr
 ~~~
- -->
+ 
 
 ![](/images/querycustomerorder.png)
 #
