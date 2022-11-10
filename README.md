@@ -1092,7 +1092,7 @@ select
 from [dbo].[Customers] C
     join [dbo].[Orders] o on o.CustomerID = C.CustomerID
     join [dbo].[Order Details] od on od.OrderID = o.OrderID
-    join [dbo].[Products] pd on pd.ProductID = od.Pr
+    join [dbo].[Products] pd on pd.ProductID = od.ProductID
 ~~~
  
 
