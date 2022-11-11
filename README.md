@@ -1117,8 +1117,9 @@ go
 
 
 ## Practica del Viernes 11 de Noviembre del 2022<a name="noviembre11-2022"></a>
-#### Practica para realizar en Sql server consultas para ejecutar y mostrar en la proxima clase
-
+#### Practica para realizar en Sql server consultas para ejecutar y mostrar en la proxima clase 
+### ***Miercoles 23 de Noviembre del 2022***
+#
 ## Ejercicio 1:
 #### Seleccionar todos los campos de la tabla clientes, ordenado por nombre del
 #### contacto de la compañía, alfabéticamente.
