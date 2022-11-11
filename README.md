@@ -36,6 +36,7 @@
 #### - [5.3 Usar Transact-SQL](#Transact-SQL)
 #### - [Practica en clase del 9 de Noviembre del 2022](#2022-11-09)
 
+#### [Practica del Viernes 11 de Noviembre del 2022](#noviembre11-2022)
 
 
 #
@@ -1099,9 +1100,62 @@ from [dbo].[Customers] C
 ![](/images/querycustomerorder.png)
 #
 
+## Lista de número de pedidos por edad:
+
+~~~sql
+SELECT LastName,(CAST(DATEDIFF(MONTH,BirthDate,GETDATE())/12 AS INT)) AS Edad,SUM(Quantity)as Pedidos
+FROM Employees e join Orders o on e.EmployeeID=o.EmployeeID 
+join [Order Details] d on o.OrderID=d.OrderID
+ where  YEAR(OrderDate) = (SELECT distinct MAX(YEAR(Orderdate)) from Orders) 
+
+group by LastName,BirthDate
+order by LastName asc
+go
+~~~
+# 
 
 
 
+## Practica del Viernes 11 de Noviembre del 2022<a name="noviembre11-2022"></a>
+#### Practica para realizar en Sql server consultas para ejecutar y mostrar en la proxima clase
+
+## Ejercicio 1:
+#### Seleccionar todos los campos de la tabla clientes, ordenado por nombre del
+#### contacto de la compañía, alfabéticamente.
+ # 
+### Ejercicio 2:
+#### Seleccionar todos los campos de la tabla órdenes, ordenados por fecha de
+ #### la orden, descendentemente.
+ #
+## Ejercicio 3:
+#### Seleccionar todos los campos de la tabla detalle de la orden, ordenada porcantidad pedida, ascendentemente.
+#
+## Ejercicio 4:
+#### Obtener todos los productos, cuyo nombre comienzan con la letra P ytienen un precio unitario comprendido entre 10 y 120.(UnitPricebetween10and20)
+#
+## Ejercicio 5:
+#### Obtener todos los clientes de los países de: USA, Francia y UK.
+ #
+## Ejercicio 6:
+#### Obtener todos los productos descontinuados y sin stock, que pertenecen a
+#### las categorías 1, 3, 4 y 7.
+# 
+## Ejercicio 7:
+#### Obtener todas las ordenes hechas por el empleado con código: 2, 5 y 7 en
+ 
+#### el año 1996
+# 
+## Ejercicio 8:
+#### Seleccionar todos los clientes que cuenten con FAX
+#
+## Ejercicio 9:
+#### Seleccionar todos los clientes que no cuenten con FAX, del país de USA
+# 
+## Ejercicio 10:
+#### Seleccionar todos los empleados que cuentan con un jefe.
+#
+## Ejercicio 11:
+#### Seleccionar todos los campos del cliente, cuya compañía empiece con la letra de A hasta la D y pertenezcan al país de USA, ordenarlos por la dirección.
 
 
 
