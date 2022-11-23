@@ -551,6 +551,19 @@ WHERE column_name IN (value1, value2, ...);
 #
 
 
+#### Tambien podemos agregar una negacion al query
+    Ejemplo#2
+~~~sql
+    SELECT EmployeeID, 
+            LastName, 
+            FirstName, 
+            Title, 
+            Address 
+    FROM Employees 
+        WHERE EmployeeID not in (3, 4, 5, 8);
+~~~
+
+
 ## El operador SQL ENTRE
 #### El operador BETWEEN selecciona valores dentro de un rango dado. Los valores pueden ser números, texto o fechas.
 
