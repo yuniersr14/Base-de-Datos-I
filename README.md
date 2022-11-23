@@ -529,7 +529,15 @@ select EmployeeID,
 #### El operador IN le permite especificar múltiples valores dentro de dicha cláusula.
 #### El operador IN es una abreviatura de múltiples condiciones.
 
-    Ejemplo
+    Ejemplo#1
+~~~sql
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+~~~
+
+
+    Ejemplo#2
 ~~~sql
     SELECT EmployeeID, 
             LastName, 
@@ -543,7 +551,25 @@ select EmployeeID,
 #
 
 
+## El operador SQL ENTRE
+#### El operador BETWEEN selecciona valores dentro de un rango dado. Los valores pueden ser números, texto o fechas.
 
+#### El operador BETWEEN es inclusivo: se incluyen los valores inicial y final.
+
+    Ejemplo
+~~~sql
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+~~~
+#
+
+    Ejemplo#2
+~~~sql
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+~~~
+#
 
 
 
