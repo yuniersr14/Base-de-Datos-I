@@ -524,6 +524,38 @@ select EmployeeID,
 ~~~
 #### _______________________________________________________________________
 
+
+## Clausula in
+#### El operador IN le permite especificar múltiples valores dentro de dicha cláusula.
+#### El operador IN es una abreviatura de múltiples condiciones.
+
+    Ejemplo
+~~~sql
+    SELECT EmployeeID, 
+            LastName, 
+            FirstName, 
+            Title, 
+            Address 
+    FROM Employees 
+        WHERE EmployeeID in (3, 4, 5, 8);
+~~~
+
+#
+
+
+
+
+
+
+
+#
+
+
+
+
+
+
+
 #### 3.- (Verdadero o Falso) La condición utilizada en la cláusula WHERE debe incluir una columna que sea parte de la cláusula SELECT.________
 
 
