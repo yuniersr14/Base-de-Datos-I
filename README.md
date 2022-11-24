@@ -39,6 +39,8 @@
 #### [Practica del Viernes 11 de Noviembre del 2022](#noviembre11-2022)
 
 
+#### [Practicas  de Join Utilizando base de datos NorthWind](#nov23-2022)
+
 #
 
 
@@ -1232,7 +1234,7 @@ go
 
 #
 
-# Practicas  de Join Utilizando base de datos NorthWind
+# Practicas  de Join Utilizando base de datos NorthWind<a name="nov23-2022"></a>
 
 
 
