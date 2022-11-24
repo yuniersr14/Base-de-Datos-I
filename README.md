@@ -1283,7 +1283,7 @@ WHERE O.OrderID=10257
 
 # 
 
-#### 5- Obtener todos los productos(codigo,nombre,precio,stock) de las ordenes hechas desde 1997 hasta la fecha de hoy.
+## 5- Obtener todos los productos(codigo,nombre,precio,stock) de las ordenes hechas desde 1997 hasta la fecha de hoy.
 <!-- ~~~sql
 SELECT O.OrderDate
         ,OD.ProductID
@@ -1299,7 +1299,7 @@ INNER JOIN Orders AS O
 ~~~ -->
 # 
 
-#### 6- Obtener el nombre de todas las categorias y los nombres de sus productos,precio y stock. 
+## 6- Obtener el nombre de todas las categorias y los nombres de sus productos,precio y stock. 
 <!-- ~~~sql
 SELECT CategoryName
         ,ProductName
@@ -1310,7 +1310,7 @@ INNER JOIN Products AS P
     ON C.CategoryID=P.CategoryID
 ~~~ -->
 #
-#### 7- Calcular el stock de productos por cada categoria.Mostrar el nombre de la categoria y el stock por categoria
+## 7- Calcular el stock de productos por cada categoria.Mostrar el nombre de la categoria y el stock por categoria
 <!-- 
 ~~~sql
 SELECT C.CategoryName
@@ -1320,7 +1320,7 @@ INNER JOIN Categories AS C
     ON P.CategoryID=C.CategoryID
 ~~~ -->
 #
-#### 8- Obtener el Nombre del cliente,Nombre del Proveedor,Nombre del empleado y el nombre de los productos que estan en la orden 10794
+## 8- Obtener el Nombre del cliente,Nombre del Proveedor,Nombre del empleado y el nombre de los productos que estan en la orden 10794
 <!-- ~~~sql
 SELECT O.OrderID
         ,C.CompanyName
@@ -1340,7 +1340,7 @@ INNER JOIN  Suppliers AS S
     ON S.SupplierID=P.SupplierID WHERE O.OrderID=10794 
 ~~~ -->
 #
-#### 9 -  Seleccionar el nombre de la compañía del cliente,él código de la orden de compra,la fecha de la orden de compra, código del producto, cantidad pedida del producto,nombre del producto, el nombre de la compañía proveedora y la ciudad del proveedor ,usar Join 
+## 9 -  Seleccionar el nombre de la compañía del cliente,él código de la orden de compra,la fecha de la orden de compra, código del producto, cantidad pedida del producto,nombre del producto, el nombre de la compañía proveedora y la ciudad del proveedor ,usar Join 
  <!-- ~~~SQL
 SELECT  C.CompanyName
         ,O.OrderID
@@ -1361,7 +1361,7 @@ INNER JOIN Suppliers AS S
     ON S.SupplierID = P.SupplierID
 ~~~ -->
 #
-#### 10- Seleccionar el nombre de la compañía del cliente, nombre del contacto, el código de la orden de compra, la fecha de la orden de compra, el código del producto,cantidad pedida del producto, nombre del producto y el nombre de la compañía proveedora, usas JOIN.Solamente las compañías proveedoras que comienzan con la letra de la A hasta la letra G,además la cantidad pedida del producto debe estar entre 23 y 187
+## 10- Seleccionar el nombre de la compañía del cliente, nombre del contacto, el código de la orden de compra, la fecha de la orden de compra, el código del producto,cantidad pedida del producto, nombre del producto y el nombre de la compañía proveedora, usas JOIN.Solamente las compañías proveedoras que comienzan con la letra de la A hasta la letra G,además la cantidad pedida del producto debe estar entre 23 y 187
 
 <!-- ~~~sql
 SELECT C.CompanyName
