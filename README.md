@@ -1240,37 +1240,37 @@ go
 
 
 
-## Opten todas las ordenes realizadas por el empleado King Robert
-~~~Sql
+## 1- Opten todas las ordenes realizadas por el empleado King Robert
+<!-- ~~~Sql
 SELECT O.OrderID,O.EmployeeID,          
     (lastname+' '+FirstName) AS NOMBRE_Y_APELLIDO_DEL_EMPLEADO         
  FROM Orders AS O               
  INNER JOIN Employees AS E ON  O.EmployeeID=E.EmployeeID     
      WHERE (E.lastname+' '+E.FirstName)='King Robert'
-~~~
-
-## Obtener todas las ordenes por el cliente cuya compania es "Que delicia" 
-~~~sql
+~~~ -->
+# 
+## 2- Obtener todas las ordenes por el cliente cuya compania es "Que delicia" 
+<!-- ~~~sql
 SELECT 
     O.OrderID,O.CustomerID ,
     CompanyName         
 FROM Orders AS O  INNER JOIN Customers AS C             
     ON  O.CustomerID=C.CustomerID   WHERE O.CustomerID='QUEDE'
-~~~
+~~~ -->
 
-## Obtener todas las ordenes hechas por el empleado King Robert,Davolio Nancy y Fuller Andrew
-~~~sql
+## 3- Obtener todas las ordenes hechas por el empleado King Robert,Davolio Nancy y Fuller Andrew
+<!-- ~~~sql
 SELECT O.OrderID,O.EmployeeID,           
     (lastname+' '+FirstName)AS  NOMBRE_Y_APELLIDO_DEL_EMPLEADO          
  FROM Orders AS O               
  INNER JOIN Employees AS E  ON  O.EmployeeID=E.EmployeeID      
     WHERE (E.lastname+' '+E.FirstName)
           IN('King Robert','Davolio Nancy','Fuller Andrew')
-~~~
+~~~ -->
+# 
 
-
-## Obtener todos los productos(codigo,nombre,precio,stock) de la orden 10257
-~~~sql
+## 4- Obtener todos los productos(codigo,nombre,precio,stock) de la orden 10257
+<!-- ~~~sql
 SELECT O.OrderID,OD.ProductID,
     ProductName,          
     OD.UnitPrice,
@@ -1279,53 +1279,164 @@ FROM Products AS P
 INNER JOIN [Order Details] AS OD ON P.ProductID=OD.ProductID              
 INNER JOIN Orders AS O  ON O.OrderID=OD.OrderID     
 WHERE O.OrderID=10257
-~~~
-
-
-
-
-<!-- 
-
-
+~~~ -->
 
 # 
-## Comandos SQL para manipulación de registros
 
-## Cláusulas SQL -->
+#### 5- Obtener todos los productos(codigo,nombre,precio,stock) de las ordenes hechas desde 1997 hasta la fecha de hoy.
+<!-- ~~~sql
+SELECT O.OrderDate
+        ,OD.ProductID
+        ,ProductName
+        ,OD.UnitPrice
+        ,UnitsInStock         
+FROM Products AS P              
+INNER JOIN [Order Details] AS OD                
+    ON P.ProductID=OD.ProductID             
+INNER JOIN Orders AS O                
+    ON O.OrderID=OD.OrderID       
+    WHERE YEAR(O.OrderDate) BETWEEN 1997 AND 2013 
+~~~ -->
+# 
 
+#### 6- Obtener el nombre de todas las categorias y los nombres de sus productos,precio y stock. 
+<!-- ~~~sql
+SELECT CategoryName
+        ,ProductName
+        ,UnitPrice
+        ,UnitsInStock          
+FROM Categories AS C             
+INNER JOIN Products AS P      
+    ON C.CategoryID=P.CategoryID
+~~~ -->
+#
+#### 7- Calcular el stock de productos por cada categoria.Mostrar el nombre de la categoria y el stock por categoria
 <!-- 
-# UNIDAD II
+~~~sql
+SELECT C.CategoryName
+        ,P.UnitsInStock          
+FROM Products AS P             
+INNER JOIN Categories AS C         
+    ON P.CategoryID=C.CategoryID
+~~~ -->
+#
+#### 8- Obtener el Nombre del cliente,Nombre del Proveedor,Nombre del empleado y el nombre de los productos que estan en la orden 10794
+<!-- ~~~sql
+SELECT O.OrderID
+        ,C.CompanyName
+        ,S.CompanyName
+        ,FirstName
+        ,ProductName     
+FROM Customers AS C          
+INNER JOIN Orders AS O              
+    ON C.CustomerID=O.CustomerID          
+INNER JOIN Employees AS E              
+    ON O.EmployeeID=E.EmployeeID     
+INNER JOIN [Order Details] AS OD      
+    ON O.OrderID=OD.OrderID     
+INNER JOIN Products AS P      
+    ON P.ProductID=OD.ProductID     
+INNER JOIN  Suppliers AS S      
+    ON S.SupplierID=P.SupplierID WHERE O.OrderID=10794 
+~~~ -->
+#
+#### 9 -  Seleccionar el nombre de la compañía del cliente,él código de la orden de compra,la fecha de la orden de compra, código del producto, cantidad pedida del producto,nombre del producto, el nombre de la compañía proveedora y la ciudad del proveedor ,usar Join 
+ <!-- ~~~SQL
+SELECT  C.CompanyName
+        ,O.OrderID
+        ,Orderdate
+        ,P.ProductID
+        ,Quantity
+        ,ProductName
+        ,S.CompanyName
+        ,S.City            
+FROM Customers AS C                  
+INNER JOIN Orders AS O                     
+    ON C.CustomerID = O.CustomerID                  
+INNER JOIN [Order Details] AS OD                     
+    ON O.OrderID = OD.OrderID                  
+INNER JOIN Products AS P                     
+    ON od.ProductID = P.ProductID                  
+INNER JOIN Suppliers AS S            
+    ON S.SupplierID = P.SupplierID
+~~~ -->
+#
+#### 10- Seleccionar el nombre de la compañía del cliente, nombre del contacto, el código de la orden de compra, la fecha de la orden de compra, el código del producto,cantidad pedida del producto, nombre del producto y el nombre de la compañía proveedora, usas JOIN.Solamente las compañías proveedoras que comienzan con la letra de la A hasta la letra G,además la cantidad pedida del producto debe estar entre 23 y 187
 
-## Tipos de datos Sql
-
-##  Diseñando nuestra primer Base de Datos
-
-## Funciones de Agregado
-
-## Operadores Lógicos
-
-## Stored Procedures
-
-## Estructuras de Control
-
-## Operadores Aritméticos y de Comparación
-
-
-# UNIDAD III
-
-## Programando Store Procedures
-
-## Funciones de Conversion y Texto
-
-
-# UNIDAD IV
-
-## Join y Unions en SQL
-
-## Programando Stored Procedures de SELECT UPDATE y DELETE
-
-#  -->
+<!-- ~~~sql
+SELECT C.CompanyName
+        ,C.ContactName
+        ,O.OrderID
+        ,OrderDate
+        ,P.ProductID
+        ,Quantity
+        ,ProductName
+        ,S.CompanyName         
+FROM Customers AS C       
+INNER JOIN Orders AS O       
+    ON C.CustomerID=O.CustomerID       
+INNER JOIN [Order Details] AS OD       
+    ON OD.OrderID=O.OrderID       
+INNER JOIN Products AS P       
+    ON P.ProductID=OD.ProductID       
+INNER JOIN Suppliers AS S       
+    ON S.SupplierID=P.SupplierID  
+    WHERE (S.CompanyName like '[A-G]%') 
+            AND (Quantity BETWEEN 23 AND 187) 
+~~~ -->
 
 
 
 
+
+
+
+
+
+
+
+ 
+
+
+
+<!-- -- # 
+-- ## Comandos SQL para manipulación de registros
+
+-- ## Cláusulas SQL 
+
+--  
+-- # UNIDAD II
+
+-- ## Tipos de datos Sql
+
+-- ##  Diseñando nuestra primer Base de Datos
+
+-- ## Funciones de Agregado
+
+-- ## Operadores Lógicos
+
+-- ## Stored Procedures
+
+-- ## Estructuras de Control
+
+-- ## Operadores Aritméticos y de Comparación
+
+
+-- # UNIDAD III
+
+-- ## Programando Store Procedures
+
+-- ## Funciones de Conversion y Texto
+
+
+-- # UNIDAD IV
+
+-- ## Join y Unions en SQL
+
+-- ## Programando Stored Procedures de SELECT UPDATE y DELETE
+
+-- #  
+
+
+
+ -->
