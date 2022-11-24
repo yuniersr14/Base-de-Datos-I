@@ -1196,41 +1196,115 @@ go
 ## Ejercicio 1:
 #### Seleccionar todos los campos de la tabla clientes, ordenado por nombre del
 #### contacto de la compañía, alfabéticamente.
+~~~sql
+select * 
+from Customers
+order by ContactName
+
+~~~
  # 
 ### Ejercicio 2:
 #### Seleccionar todos los campos de la tabla órdenes, ordenados por fecha de
  #### la orden, descendentemente.
  #
+~~~sql
+select *
+from Orders
+order by OrderDate desc
+~~~
+
+
 ## Ejercicio 3:
 #### Seleccionar todos los campos de la tabla detalle de la orden, ordenada porcantidad pedida, ascendentemente.
+~~~sql
+select *
+from [Order Details] od
+order by od.Quantity asc
+~~~
+
+
 #
 ## Ejercicio 4:
 #### Obtener todos los productos, cuyo nombre comienzan con la letra P ytienen un precio unitario comprendido entre 10 y 120.(UnitPricebetween10and20)
+~~~sql
+select *
+from Products p
+where p.ProductName like 'P%'
+	and p.UnitPrice between 10 and 120
+
+~~~
+
 #
 ## Ejercicio 5:
 #### Obtener todos los clientes de los países de: USA, Francia y UK.
- #
+~~~sql
+Select * 
+from Customers Cu
+where Cu.Country in ('USA', 'UK')
+
+~~~
+#
 ## Ejercicio 6:
 #### Obtener todos los productos descontinuados y sin stock, que pertenecen a
 #### las categorías 1, 3, 4 y 7.
+
+~~~sql
+select *
+from Products P
+ where p.CategoryID in (1, 3, 4,7)
+	and p.Discontinued = 1
+~~~
 # 
 ## Ejercicio 7:
-#### Obtener todas las ordenes hechas por el empleado con código: 2, 5 y 7 en
- 
-#### el año 1996
+#### Obtener todas las ordenes hechas por el empleado con código: 2, 5 y 7 en el año 1996
+~~~sql
+select OrderID
+from Orders od
+	where od.EmployeeID in (2, 5, 7)
+
+~~~
 # 
 ## Ejercicio 8:
 #### Seleccionar todos los clientes que cuenten con FAX
+~~~sql
+select *
+from Customers cu
+where fax is not null
+
+~~~
+    Todos ls que Tienen datos en el campo fax
 #
 ## Ejercicio 9:
 #### Seleccionar todos los clientes que no cuenten con FAX, del país de USA
+~~~sql
+select *
+from Customers cu
+where cu.fax is null
+~~~
+    todos los que tengan el campo fax nulo.
 # 
 ## Ejercicio 10:
 #### Seleccionar todos los empleados que cuentan con un jefe.
+~~~sql
+	select *
+	from Employees ep
+	where ReportsTo is not null
+
+~~~
+
 #
 ## Ejercicio 11:
 #### Seleccionar todos los campos del cliente, cuya compañía empiece con la letra de A hasta la D y pertenezcan al país de USA, ordenarlos por la dirección.
+~~~sql
+Select *
+from Customers cu
+where cu.CompanyName like 'A%'
+		or cu.CompanyName like 'B%'
+		or cu.CompanyName like 'C%'
+		or cu.CompanyName like 'D%'
 
+
+~~~
 
 #
 
