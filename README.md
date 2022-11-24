@@ -1241,36 +1241,36 @@ go
 
 
 ## Opten todas las ordenes realizadas por el empleado King Robert
-<!-- ~~~Sql
+~~~Sql
 SELECT O.OrderID,O.EmployeeID,          
     (lastname+' '+FirstName) AS NOMBRE_Y_APELLIDO_DEL_EMPLEADO         
  FROM Orders AS O               
  INNER JOIN Employees AS E ON  O.EmployeeID=E.EmployeeID     
      WHERE (E.lastname+' '+E.FirstName)='King Robert'
-~~~ -->
+~~~
 
 ## Obtener todas las ordenes por el cliente cuya compania es "Que delicia" 
-<!-- ~~~sql
+~~~sql
 SELECT 
     O.OrderID,O.CustomerID ,
     CompanyName         
 FROM Orders AS O  INNER JOIN Customers AS C             
     ON  O.CustomerID=C.CustomerID   WHERE O.CustomerID='QUEDE'
-~~~ -->
+~~~
 
 ## Obtener todas las ordenes hechas por el empleado King Robert,Davolio Nancy y Fuller Andrew
-<!-- ~~~sql
+~~~sql
 SELECT O.OrderID,O.EmployeeID,           
     (lastname+' '+FirstName)AS  NOMBRE_Y_APELLIDO_DEL_EMPLEADO          
  FROM Orders AS O               
  INNER JOIN Employees AS E  ON  O.EmployeeID=E.EmployeeID      
     WHERE (E.lastname+' '+E.FirstName)
           IN('King Robert','Davolio Nancy','Fuller Andrew')
-~~~ -->
+~~~
 
 
 ## Obtener todos los productos(codigo,nombre,precio,stock) de la orden 10257
-<!-- ~~~sql
+~~~sql
 SELECT O.OrderID,OD.ProductID,
     ProductName,          
     OD.UnitPrice,
@@ -1279,7 +1279,7 @@ FROM Products AS P
 INNER JOIN [Order Details] AS OD ON P.ProductID=OD.ProductID              
 INNER JOIN Orders AS O  ON O.OrderID=OD.OrderID     
 WHERE O.OrderID=10257
-~~~ -->
+~~~
 
 
 
