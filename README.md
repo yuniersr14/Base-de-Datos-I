@@ -1,8 +1,8 @@
 
-<!--| Alejandro Jimenez | UCSD |
+| Yunier Suarez | UCSD |
 |---------------------|------------------------|
-|![](https://avatars.githubusercontent.com/u/7384546?v=4)|![](https://pbs.twimg.com/profile_images/901546652091252736/6Clcdv1L_400x400.jpg)|
--->
+|![](https://avatars.githubusercontent.com/u/50059077?s=400&u=0bc5bed15bfca8cc74311e98642061bb350a8198&v=4)|![](https://pbs.twimg.com/profile_images/901546652091252736/6Clcdv1L_400x400.jpg)|
+
 # Base-de-Datos-I
 
 ## [1 - Unidad I](#UnidadI)
